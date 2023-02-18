@@ -1,0 +1,25 @@
+{
+  "homepage": "https://deek80.github.io/blog",
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write *.html package.json",
+    "start": "http-server"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "prettier": "^2.8.4"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": false,
+    "trailingComma": "es5"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
