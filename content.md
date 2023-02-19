@@ -7,6 +7,7 @@ Also, I'm looking for an exuse to learn about revealjs. It's probably not the
 best platform for blog posts, but at the very least it might force this to be
 a bit instructional.
 ***
+***
 Today I want to write about how I went down a rabbit hole to install Windows on
 my ancient desktop. It has an Nvidia GTX-555 graphics card, which has one of
 those mini-HDMI ports. Ubuntu supports it sometimes, but every once in a while

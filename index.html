@@ -17,22 +17,38 @@
 
   <body>
     <div class="reveal">
-      <div class="slides">
-        <section
-          data-markdown="content.md"
-          data-separator="^\*\*\*\*\*\*\n"
-          data-separator-vertical="^\*\*\*\n"
-        ></section>
-      </div>
+      <div class="slides" id="slides"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.js"></script>
     <script>
-      Reveal.initialize({
+      const queryParams = Object.fromEntries(
+        window.location.search
+          .substring(1)
+          .split("&")
+          .map(pair => pair.split("=").map(decodeURIComponent))
+      );
+      const values = {
+        markdown: "notFound.md",
+        hsep: String.raw`^\*\*\*\n\*\*\*\n`,
+        vsep: String.raw`^\*\*\*\n`,
         width: 1600,
         height: 1000,
+        ...queryParams,
+      };
+
+      const section = document.createElement("section");
+      section.setAttribute("data-markdown", values.markdown);
+      section.setAttribute("data-separator", values.hsep);
+      section.setAttribute("data-separator-vertical", values.vsep);
+
+      document.getElementById("slides").appendChild(section);
+
+      Reveal.initialize({
+        width: values.width,
+        height: values.height,
         slideNumber: true,
         hash: true,
         plugins: [RevealMarkdown, RevealHighlight],
